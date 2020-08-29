@@ -24,13 +24,38 @@ Cooking has always been a passion of mine since I was a child being so eager to 
 
 1. create user model
 2. create recipe model
-3. get a route to get recipes on community page 
-4. add index route function to controller
-5. make controller function to show user
-6. create user view for profile
-7. create recipe model
-8. get route for index page
-9.  add route to controller
-10. add view to display index page
-11. add route for recipes to display on index view
-12. add show page
+3. get a route to show recipes on community page 
+4. make controller function for community page
+5. create user view for profile
+6. create route to show profile info
+7. add profile info route to controller
+8. add review route for recipes
+9. add review route to controllers
+10. create message index route and add to controller
+11. add route to reply on message routed
+
+## Tech Used
+* Node Js
+* Mongodb
+* express
+
+## ERD
+![Image of ERD](public/images/ERD.jpeg)
+
+## Wireframes
+#### Community Page
+![Community Page](public/images/community.png)
+#### Profile Page
+![Profile Page](public/images/profile.png)
+#### My Recipes Page
+![My Recipes Page](public/images/myRecipes.png)
+#### Recipe Page
+![Recipe Page](public/images/recipe.png)
+#### Message Board 
+![Message Board](public/images/message.png)
+
+## Stretch Goals
+* Make a page to pull ingredients from a recipe into a shopping list
+* Add filter feature to narrow down search for recipes
+* create search bar to find recipes already on page 
+
