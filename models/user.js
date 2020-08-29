@@ -1,11 +1,12 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: String,
   email: String,
   avatar: String,
-  googleId: String
+  googleId: String,
+  bio: String,
 }, {
   timestamps: true
 });
