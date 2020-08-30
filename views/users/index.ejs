@@ -1,57 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script defer src="/javascripts/scripts.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="stylesheets/style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-  <title>Users</title>
-</head>
+<%- include('../partials/header') %>
 
-<body>
-  <div class="navbar-fixed">
-    <nav>
-      <nav class="navbar navbar-light bg-light justify-content-around">
-        <a class="nav-item" href="#">About</a>
-        <a class="nav-item" href="#">Community Recipes</a>
-        <a class="navbar-brand mb-0 h1">The Potluck</a>
-        <a class="nav-item" href="#">Community Members</a>
-        <a class="nav-item" href="#">Message Board</a>
-        <div class="btn-group">
-          <button type="button" class="btn btn-danger">My Profile</button>
-          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Edit Profile</a>
-            <a class="dropdown-item" href="#">My Recipes</a>
-            <a class="dropdown-item" href="#">Log Out</a>
-          </div>
-        </div>
-      </nav>
-        <ul class="right">
-          <li>
-          <% if (user) { %>
-            <a href="/auth/logout">Log Out</a>
-          <% } else { %>
-            <a href="/auth/google">Login with Google</a>
-          <% } %>
-          </li>
-        </ul>
+<h3>User List Page</h3>
+<% users.forEach(c => { %>
+  <a href="/users/<%= c._id %>">
+    <div class="card">
+      <div class="card-body">
+        <img height="50" id="avatarPhoto" src="<%= c.avatar ? c.avatar : 'https://i.imgur.com/DuUZpapt.jpg' %>" alt=""> 
+        <%= c.name %></a> - Joined on <%= c.createdAt.toLocaleString().split(',')[0] %>
       </div>
-    </nav>
-  </div>
-  <ul>Registered Users:
-    <% users.forEach(u => { %>
-      <li><%= u.name %></li>
-    <% }) %>
-  </ul>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+    </div><br>
+<% }) %>
 
-</html>
+  <%- include('../partials/footer') %>
