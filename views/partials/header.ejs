@@ -21,13 +21,11 @@
         <a class="nav-item" href="#">Community Members</a>
         <a class="nav-item" href="#">Message Board</a>
         <div class="btn-group">
-          <button type="button" class="btn btn-danger">My Profile</button>
+          <a href="/users/profile"><button type="button" class="btn btn-danger">My Profile</button></a>
           <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Edit Profile</a>
-            <a class="dropdown-item" href="#">My Recipes</a>
             <% if (user) { %>
                 <a class="dropdown-item" href="/auth/logout">Log Out</a>
               <% } else { %>

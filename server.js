@@ -17,6 +17,7 @@ require('./config/database');
 require('./config/passport');
 
 // require our routes
+const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 
@@ -41,7 +42,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // mount all routes with appropriate base paths
-app.use('/', usersRouter);
+app.use('/', indexRouter)
+app.use('/users', usersRouter);
 app.use('/auth', authRouter)
 
 // invalid request, send 404 page
