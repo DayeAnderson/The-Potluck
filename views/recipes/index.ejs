@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<h3><%= title %></h3>
+
+<% recipes.forEach(recipes=> { %>
+  <div class="card" style="width: 18rem;">
+    <img src="<%= game.imageUrl %>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= recipe.title %> </h5>
+      <a href="/users/<%= user._id %>" class="btn btn-primary">Created By</a>
+    </div>
+  </div>
+<% }) %>
+
+<%- include('../partials/footer') %>
