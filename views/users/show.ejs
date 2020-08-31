@@ -16,10 +16,10 @@
     <!-- This is where we'll iterate over the games with a forEach -->
 
     <!-- This is where we'll render buttons to add/remove a user as a friend -->
-    <% if (!userInfo._id.equals(user._id) && !user.followers.includes(userInfo._id)) { %>
+    <% if (!userInfo._id.equals(user._id) && !user.following.includes(userInfo._id)) { %>
       <a href="/users/<%= userInfo._id %>/follower" class="btn btn-primary">Follow</a>
     <% } %>
-    <% if (!userInfo._id.equals(user._id) && user.followers.includes(userInfo._id)) { %>
+    <% if (!userInfo._id.equals(user._id) && user.following.includes(userInfo._id)) { %>
       <a href="/users/<%= userInfo._id %>/unfollow" class="btn btn-primary">Unfollow</a>
     <% } %>
   </div>

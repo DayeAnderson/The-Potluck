@@ -6,19 +6,24 @@ module.exports = {
   show,
   update,
   follow,
-  removeFollow
+  removeFollow,
+  getName
 };
 
+function getName(req, res) {
+  res.json(req.user.name)
+}
+
 function follow(req, res) {
-  req.user.followers.push(req.params.id)
+  req.user.following.push(req.params.id)
   req.user.save().then(() => {
     res.redirect(`/users/${req.params.id}`)
   })
 }
 
 function removeFollow(req, res) {
-  let idx = req.user.followers.indexOf(req.params.id)
-  req.user.followers.splice(idx, 1)
+  let idx = req.user.following.indexOf(req.params.id)
+  req.user.following.splice(idx, 1)
   req.user.save().then(() => {
     res.redirect(`/users/${req.params.id}`)
   })
@@ -41,7 +46,7 @@ function show(req, res) {
 }
 
 function showProfile(req, res) {
-  User.findById(req.user._id)
+  User.findById(req.user._id).populate('following')
   .then((user) => {
     res.render('users/profile', { title: 'Profile Page', user})
   })
