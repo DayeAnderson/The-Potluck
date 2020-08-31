@@ -10,3 +10,7 @@
   padding-top: 20px;
 }
 
+  #avatarPhoto {
+    border-radius: 50%;
+  }
+

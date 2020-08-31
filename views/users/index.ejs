@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
 <h3>User List Page</h3>
-<% users.forEach(c => { %>
-  <a href="/users/<%= c._id %>">
+<% users.forEach(u => { %>
+  <a href="/users/<%= u._id %>">
     <div class="card">
       <div class="card-body">
-        <img height="50" id="avatarPhoto" src="<%= c.avatar ? c.avatar : 'https://i.imgur.com/DuUZpapt.jpg' %>" alt=""> 
-        <%= c.name %></a> - Joined on <%= c.createdAt.toLocaleString().split(',')[0] %>
+        <img height="50" id="avatarPhoto" src="<%= u.avatar ? u.avatar : 'https://i.imgur.com/DuUZpapt.jpg' %>" alt=""> 
+        <%= u.name %></a> - Joined on <%= u.createdAt.toLocaleString().split(',')[0] %>
       </div>
     </div><br>
 <% }) %>

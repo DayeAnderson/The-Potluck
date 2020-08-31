@@ -2,25 +2,53 @@
 
 <h3><%= title %></h3>
 
-<div class="card text-center">
-    <div class="card-header">
+<div class="card">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link active disabled" id ="profileinfo-tab" data-toggle="tab" href="#profileinfo" role="tab" >Profile Info</a>
+          <a class="nav-link active" id ="profileinfo-tab" data-toggle="tab" href="#profileinfo" role="tab">Profile Info</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled" id="updateinfo-tab" data-toggle="tab" href="#updateinfo" role="tab" >Update Info</a>
+          <a class="nav-link" id="updateinfo-tab" data-toggle="tab" href="#updateinfo" role="tab">Update Info</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" id="following-tab" data-toggle="tab" href="#following" role="tab">Following</a>
         </li>
       </ul>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="profileinfo" role="tabpanel" aria-labelledby="profileinfo-tab">
+          <div class="card-body">
+            <h5 class="card-title">Name: <%= user.name %></h5>
+              <p class="card-text">Email: <%= user.email %></p>
+              <p class="card-text">Bio: <%= user.bio %></p>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="updateinfo" role="tabpanel" aria-labelledby="updateinfo-tab">
+          <div class="card-body">
+            <form action="/users/profile?_method=PUT" method="POST">
+              <div class="form-row">
+                <div class="col-md-12">
+                  <label for="avatarUrl">Avatar Image URL:</label>
+                  <input type="text" id="avatarUrl" class="form-control" name="avatar" value="<%= user.avatar %>">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-12">
+                  <label for="bio">Bio:</label>
+                  <textarea rows="3" id="bio" class="form-control" name="bio"><%= user.bio %></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-warning">Update</button>
+            </form>
+          </div>
+        </div>
+          <div class="tab-pane fade" id="following" role="tab">
+            <div class="card-body">
+              <% user.followers.forEach(f => { %>
+                <a href="/users/<%= f._id %>"><img width="30" id="avatarPhoto" src="<%= f.avatar %>" alt=""><%= f.name %></a><br><br>
+                <% }) %>
+            </div>
+          </div>
+      </div>
   </div>
 
 <%- include('../partials/footer') %>

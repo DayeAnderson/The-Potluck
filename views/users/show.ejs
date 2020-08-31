@@ -1,4 +1,4 @@
-<%- include ('../partials/header') %>
+<%- include('../partials/header') %>
 
 <h3><%= title %></h3>
 
@@ -16,11 +16,11 @@
     <!-- This is where we'll iterate over the games with a forEach -->
 
     <!-- This is where we'll render buttons to add/remove a user as a friend -->
-    <% if (!userInfo._id.equals(user._id) && !user.friends.includes(userInfo._id)) { %>
-      <a href="/users/<%= userInfo._id %>/friend" class="btn btn-primary">Add Friend</a>
+    <% if (!userInfo._id.equals(user._id) && !user.followers.includes(userInfo._id)) { %>
+      <a href="/users/<%= userInfo._id %>/follower" class="btn btn-primary">Follow</a>
     <% } %>
-    <% if (!userInfo._id.equals(user._id) && user.friends.includes(userInfo._id)) { %>
-      <a href="/users/<%= userInfo._id %>/unfriend" class="btn btn-primary">Remove Friend</a>
+    <% if (!userInfo._id.equals(user._id) && user.followers.includes(userInfo._id)) { %>
+      <a href="/users/<%= userInfo._id %>/unfollow" class="btn btn-primary">Unfollow</a>
     <% } %>
   </div>
 </div>
