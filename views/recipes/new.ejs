@@ -1,5 +1,28 @@
 <%- include('../partials/header') %>
 
-<h1>hello</h1>
+<h1><%= title %></h1>
+
+<form action="/recipes" method="POST">
+    <div class="form-row">
+      <div class="col-md-4">
+        <h5>Name of Dish:</h5>
+        <input type="text" class="form-control" name="query" placeholder="">
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+          <h5>Description</h5>
+          <textarea rows="3" id="description" class="form-control" name="description" placeholder="Describe the dish..."></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-12">
+          <h5>Instructions</h5>
+          <textarea rows="3" id="instructions" class="form-control" name="Instructions" placeholder="How do you make it..."></textarea>
+        </div>
+      </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
 
 <%- include('../partials/footer') %>
