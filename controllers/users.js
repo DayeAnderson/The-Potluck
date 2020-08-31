@@ -43,7 +43,6 @@ function show(req, res) {
       title: 'Info',
       userInfo,
       user: req.user, 
-      recipes
     })
   })
 }

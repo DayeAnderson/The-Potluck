@@ -13,7 +13,7 @@ function show(req, res) {
         res.render('recipes/show', {
             title: recipe.name,
             user: req.user, 
-            recipe
+            
         })
     })
 }
@@ -25,20 +25,20 @@ function newRecipe(req, res) {
 }
 
 function create(req, res) {
-    req.body.createdBy = req.user.name
     Recipe.create(req.body)
     .then(() => {
-        res.redirect('/recipes/new')
-    })
-}
+            res.redirect('/recipes')
+        })
+    }
 
 function index(req, res) {
-    Recipe.find({ createdBy: req.user._id })
+    Recipe.find({})
     .then((recipes) => {
         res.render('recipes/index', {
             title: 'Community Recipes',
             user: req.user,
             recipes
+            
         })
     })
 }

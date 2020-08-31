@@ -12,6 +12,7 @@
     <!-- Let's clean up the date data to show the day the user joined -->
     <p class="card-text">Joined: <%= userInfo.createdAt.toLocaleString() %></p>
     <p class="card-text">Email: <a href="mailto:<%= userInfo.email %>"><%= userInfo.email %></a></p>
+    <p class="card-text">Bio: <%= userInfo.bio %></p>
     <p class="card-text">Favorite Recipes:</p>
     <!-- This is where we'll iterate over the games with a forEach -->
 
