@@ -51,8 +51,11 @@ app.use('/auth', authRouter);
 app.use('/recipes', recipesRouter)
 
 // invalid request, send 404 page
-app.use(function(req, res) {
-  res.status(404).send('Cant find that!');
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
 });
 
 module.exports = app;
