@@ -7,7 +7,7 @@ const userSchema = new Schema({
   avatar: String,
   googleId: String,
   bio: String,
-  following: [{ type: Schema.Types.ObjectId, ref: 'User'}]
+  following: [{ type: Schema.Types.ObjectId, ref: 'User'}],
 }, {
   timestamps: true
 });

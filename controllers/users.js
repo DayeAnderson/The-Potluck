@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Recipe = require('../models/recipe');
 
 module.exports = {
   index,
@@ -37,10 +38,12 @@ function update(req, res) {
 
 function show(req, res) {
   User.findById(req.params.id).then((userInfo) => {
+    Recipe.find({ createdBy: userInfo._id})
     res.render('users/show', {
       title: 'Info',
       userInfo,
-      user: req.user
+      user: req.user, 
+      recipes
     })
   })
 }
