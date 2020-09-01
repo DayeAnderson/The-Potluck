@@ -7,6 +7,7 @@ const recipeSchema = new Schema ({
     imageUrl: String,
     ingredients: Array,
     instructions: String,
+    recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe'}],
     createdBy: [{ type: Schema.Types.ObjectId, ref: 'User'}]
 },{
     timestamps: true

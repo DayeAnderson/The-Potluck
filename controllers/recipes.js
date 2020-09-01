@@ -12,8 +12,7 @@ function show(req, res) {
     .then((recipe) => {
         res.render('recipes/show', {
             title: recipe.name,
-            user: req.user, 
-            
+            user: req.user
         })
     })
 }

@@ -42,7 +42,7 @@ function show(req, res) {
     res.render('users/show', {
       title: 'Info',
       userInfo,
-      user: req.user, 
+      user: req.user
     })
   })
 }
