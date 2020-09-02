@@ -53,11 +53,14 @@
   <br>
   <h2>Recipes</h2>
 
-  <% recipes.forEach(recipe => { %>
+  <% recipes.forEach(r => { %>
     <div class="card" style="width: 18rem;">
       <div class="card-body"></div>
-      <h5 class="card-title"><%= recipe.name %></h5>
-        <a href="/recipes/<%= recipe._id %>" class="btn btn-primary">Details</a>
+      <h5 class="card-title"><%= r.name %></h5>
+      <form action="/<%= r.id %>?_method=DELETE" method="POST">
+        <button type="submit">X</button>
+      </form>
+        <a href="/recipes/<%= r._id %>" class="btn btn-primary">Details</a>
       </div>
     </div>
   <% }) %>

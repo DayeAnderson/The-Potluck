@@ -5,7 +5,7 @@ module.exports = {
     index,
     new: newRecipe,
     create,
-    show
+    show,
 }
 
 function show(req, res) {
@@ -28,17 +28,10 @@ function newRecipe(req, res) {
 function create(req, res) {
     req.body.createdBy = req.user._id
     Recipe.create(req.body)
-    .then((recipe) => {
-        if (recipe) {
-            recipe.createdBy.push(req.user._id)
-            recipe.save()
-            .then(() => {
+    .then(() => {
                 res.redirect('/recipes')
-
-            })
-        }
         })
-    }
+ }
 
 function index(req, res) {
     Recipe.find({})
@@ -46,8 +39,7 @@ function index(req, res) {
         res.render('recipes/index', {
             title: 'Community Recipes',
             user: req.user,
-            recipes
-            
+            recipes: recipes.reverse()
         })
     })
 }

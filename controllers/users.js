@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Recipe = require('../models/recipe');
 
+
 module.exports = {
   index,
   showProfile,
@@ -8,8 +9,16 @@ module.exports = {
   update,
   follow,
   removeFollow,
-  getName
+  getName,
+  delete: deleteRecipe
 };
+
+function deleteRecipe(req, res) {
+  Recipe.findByIdAndDelete(req.params.id)
+  .then(() => {
+      res.redirect('/profile')
+  })
+}
 
 function getName(req, res) {
   res.json(req.user.name)
@@ -50,13 +59,22 @@ function show(req, res) {
 function showProfile(req, res) {
   User.findById(req.user._id).populate('following')
   .then((user) => {
-    res.render('users/profile', { title: 'Profile Page', user})
+    Recipe.find({ createdBy: req.user._id })
+    .then((recipes) => {
+      res.render('users/profile', { 
+        title: 'Profile Page', 
+        user, 
+        recipes: recipes.reverse()
+      })
+    })
   })
 }
 
 function index(req, res) {
   User.find({})
   .then(users => {
-    res.render('users/index', { user: req.user, users })
+    res.render('users/index', { 
+      user: req.user, 
+      users })
   })
 }
