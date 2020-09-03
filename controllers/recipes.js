@@ -12,7 +12,7 @@ module.exports = {
 function deleteRecipe(req, res) {
     Recipe.findByIdAndDelete(req.params.id)
     .then(() => {
-        res.redirect('/recipes')
+        res.redirect('/users/profile')
     })
   }
 
