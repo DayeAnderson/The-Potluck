@@ -18,22 +18,22 @@ function deleteRecipe(req, res) {
 
 function show(req, res) {
     Recipe.findById(req.params.id)
-    .then((recipe) => {
+    .then((recipes) => {
         res.render('recipes/show', {
-            title: recipe.name,
+            title: recipes.name,
             user: req.user,
-            recipe: recipe
+            recipes: recipes
         })
     })
 }
 
 function newRecipe(req, res) {
     Recipe.find({})
-    .then((recipe) => {
+    .then((recipes) => {
         res.render('recipes/new', {
           title: 'Create Recipe',
           user: req.user,
-          recipe
+          recipes
       })
   })
 }

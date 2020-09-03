@@ -6,19 +6,19 @@
     <div class="form-row">
       <div class="col-md-4">
         <h5>Name of Dish:</h5>
-        <input type="text" class="form-control" name="name" placeholder="Dish name...">
+        <input type="text" id="name" class="form-control" name="name" placeholder="Dish name...">
       </div>
     </div>
     <div class="form-row">
         <div class="col-md-12">
           <h5>Description</h5>
-          <textarea rows="3" id="description" class="form-control" name="description" placeholder="Describe the dish..."><%= recipe.desciption %></textarea>
+          <textarea rows="3" id="description" class="form-control" name="description" placeholder="Describe the dish..."><%= recipes.desciption %></textarea>
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-12">
           <h5>Instructions</h5>
-          <textarea rows="3" id="instructions" class="form-control" name="Instructions" placeholder="How do you make it..."><%= recipe.instructions %></textarea>
+          <textarea rows="3" id="instructions" class="form-control" name="instructions" placeholder="How do you make it..."><%= recipes.instructions %></textarea>
         </div>
       </div> 
       <h5>Add Image</h5>
