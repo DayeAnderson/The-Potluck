@@ -46,11 +46,17 @@ function update(req, res) {
 }
 
 function show(req, res) {
-  User.findById(req.params.id).then((userInfo) => {
-    res.render('users/show', {
-      title: 'Info',
-      userInfo,
-      user: req.user
+  User.findById(req.params.id)
+  .then((userInfo) => {
+    Recipe.find({ createdBy: req.params.id })
+    .then((recipes) => {
+      res.render('users/show', {
+        title: 'Info',
+        userInfo,
+        user: req.user,
+        createdBy: recipes.createdBy,
+        recipes: recipes.reverse()
+      })
     })
   })
 }

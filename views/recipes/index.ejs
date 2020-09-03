@@ -4,7 +4,6 @@
 
 <% recipes.forEach(recipe => { %>
     <div class="card" style="width: 18rem;">
-      <div class="card-body"></div>
       <h5 class="card-title"><%= recipe.name %></h5>
       <p> Created By <a href="users/<%= recipe.createdBy %>"><%= recipe.createdBy %></a></p>
         <a href="/recipes/<%= recipe._id %>" class="btn btn-primary">Details</a>

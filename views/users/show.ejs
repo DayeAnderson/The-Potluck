@@ -26,4 +26,18 @@
   </div>
 </div>
 
+<h2>Recipes</h2>
+
+<% recipes.forEach(r => { %>
+  <div class="card" style="width: 18rem;">
+    <form action="/recipes/<%= r.id %>?_method=DELETE" method="POST">
+      <button type="submit">X</button>
+    </form>
+    <h5 class="card-title"><%= r.name %></h5>
+    <a href="/users/<%= r.createdBy %>"></a>
+      <a href="/recipes/<%= r._id %>" class="btn btn-primary">Details</a>
+    </div>
+  </div>
+<% }) %>
+
 <%- include('../partials/footer') %>
