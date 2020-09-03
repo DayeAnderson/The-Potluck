@@ -39,17 +39,11 @@ function newRecipe(req, res) {
 }
 
 function create(req, res) {
-    req.body.createdBy = req.user._id
+    console.log(req.user.name)
+    req.body.createdBy = req.user.name
     Recipe.create(req.body)
     .then((recipe) => {
-        if (recipe) {
-            recipe.createdBy.push(req.user._id)
-            recipe.save()
-            .then(() => {
-                res.redirect('/recipes')
-
-            })
-        }
+        res.redirect('/recipes')
     })
 }
 

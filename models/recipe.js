@@ -8,7 +8,7 @@ const recipeSchema = new Schema ({
     ingredients: Array,
     instructions: String,
     recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe'}],
-    createdBy: [{ type: Schema.Types.ObjectId, ref: 'User'}]
+    createdBy: String
 },{
     timestamps: true
 })

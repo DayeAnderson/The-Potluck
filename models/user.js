@@ -15,7 +15,6 @@ const userSchema = new Schema({
   avatar: String,
   googleId: String,
   bio: String,
-  createdBy: String,
   myRecipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe'}],
   following: [{ type: Schema.Types.ObjectId, ref: 'User'}],
 }, {
