@@ -7,16 +7,19 @@
   </div>
   <button type="submit" class="btn btn-success">Create Post</button>
 </form>
-
+<br>
 <% messages.forEach(message => { %>
   <div class="card">
     <div class="card-header">
-      <%= message.postedBy %> <img id="avatarPhoto" width="30" src="<%= message.avatar %>" alt="">
+      <%= message.postedBy %> <img id="avatarPhoto" width="30" src="<%= message.avatar ? message.avatar : 'https://i.imgur.com/DuUZpapt.jpg'  %>">
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= message.title %></h5>
       <h6><%= message.createdAt.toLocaleString()%></h6>
       <a href="/messages/<%= message._id %>" class="btn btn-primary">See Post</a>
+        <form action="/messages/<%= message.id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+        </form>
     </div>
   </div>
 <% }) %>

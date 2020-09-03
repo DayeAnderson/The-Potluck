@@ -16,7 +16,7 @@ module.exports = {
 function deleteRecipe(req, res) {
   Recipe.findByIdAndDelete(req.params.id)
   .then(() => {
-      res.redirect('/profile')
+      res.redirect('/messages')
   })
 }
 

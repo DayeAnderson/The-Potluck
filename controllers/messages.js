@@ -4,9 +4,16 @@ module.exports = {
   index,
   create,
   show,
-  reply
+  reply,
+  delete: deleteMessage
 }
 
+function deleteMessage(req, res) {
+  Message.findByIdAndDelete(req.params.id)
+  .then(() => {
+    res.redirect('/messages')
+})
+}
 function reply(req, res) {
   req.body.postedBy = req.user.name
   req.body.avatar = req.user.avatar
