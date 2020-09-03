@@ -62,7 +62,7 @@ function showProfile(req, res) {
     .then((recipes) => {
       res.render('users/profile', { 
         title: 'Profile Page', 
-        user, 
+        user,
         recipes: recipes.reverse()
       })
     })

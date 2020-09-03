@@ -1,5 +1,5 @@
 const Recipe = require('../models/recipe')
-const User = require('../models/user')
+
 
 module.exports = {
     index,
@@ -18,35 +18,34 @@ function deleteRecipe(req, res) {
 
 function show(req, res) {
     Recipe.findById(req.params.id)
-    .then((recipes) => {
+    .then((recipe) => {
         res.render('recipes/show', {
-            title: recipes.name,
+            title: recipe.name,
             user: req.user,
-            recipes
+            recipe: recipe
         })
     })
 }
 
 function newRecipe(req, res) {
-    res.render('recipes/new', {
-      title: 'Create Recipe',
-      user: req.user})
+    Recipe.find({})
+    .then((recipe) => {
+        res.render('recipes/new', {
+          title: 'Create Recipe',
+          user: req.user,
+          recipe
+      })
+  })
 }
 
 function create(req, res) {
     req.body.createdBy = req.user._id
     Recipe.create(req.body)
-    .then((recipe) => {
-        if (recipe) {
-            recipe.createdBy.push(req.user._id)
-            recipe.save()
-            .then(() => {
-                res.redirect('/recipes')
+    .then(() => {
+        res.redirect('/recipes')
 
-            })
-        }
-        })
-    }
+    })
+}
 
 function index(req, res) {
     Recipe.find({})
