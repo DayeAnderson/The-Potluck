@@ -6,7 +6,15 @@ module.exports = {
     new: newRecipe,
     create,
     show,
+    delete: deleteRecipe
 }
+
+function deleteRecipe(req, res) {
+    Recipe.findByIdAndDelete(req.params.id)
+    .then(() => {
+        res.redirect('/recipes')
+    })
+  }
 
 function show(req, res) {
     Recipe.findById(req.params.id)
@@ -28,10 +36,17 @@ function newRecipe(req, res) {
 function create(req, res) {
     req.body.createdBy = req.user._id
     Recipe.create(req.body)
-    .then(() => {
+    .then((recipe) => {
+        if (recipe) {
+            recipe.createdBy.push(req.user._id)
+            recipe.save()
+            .then(() => {
                 res.redirect('/recipes')
+
+            })
+        }
         })
- }
+    }
 
 function index(req, res) {
     Recipe.find({})

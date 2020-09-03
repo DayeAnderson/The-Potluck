@@ -8,6 +8,9 @@
       <h5 class="card-title"><%= recipe.name %></h5>
       <p><%= recipe.createdBy %></p>
         <a href="/recipes/<%= recipe._id %>" class="btn btn-primary">Details</a>
+        <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+        </form>
       </div>
     </div>
   <% }) %>

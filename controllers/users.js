@@ -47,7 +47,6 @@ function update(req, res) {
 
 function show(req, res) {
   User.findById(req.params.id).then((userInfo) => {
-    Recipe.find({ createdBy: userInfo._id})
     res.render('users/show', {
       title: 'Info',
       userInfo,
