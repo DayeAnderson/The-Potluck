@@ -43,7 +43,6 @@ function create(req, res) {
     Recipe.create(req.body)
     .then(() => {
         res.redirect('/recipes')
-
     })
 }
 

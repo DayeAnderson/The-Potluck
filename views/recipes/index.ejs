@@ -6,7 +6,7 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body"></div>
       <h5 class="card-title"><%= recipe.name %></h5>
-      <p><%= recipe.createdBy %></p>
+      <p> Created By <a href="users/<%= recipe.createdBy %>"><%= user.name %></a></p>
         <a href="/recipes/<%= recipe._id %>" class="btn btn-primary">Details</a>
 
       </div>

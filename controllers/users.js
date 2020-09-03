@@ -58,11 +58,12 @@ function show(req, res) {
 function showProfile(req, res) {
   User.findById(req.user._id).populate('following')
   .then((user) => {
-    Recipe.find({ createdBy: req.user._id })
+    Recipe.find({})
     .then((recipes) => {
       res.render('users/profile', { 
         title: 'Profile Page', 
         user,
+        createdBy: recipes.createdBy,
         recipes: recipes.reverse()
       })
     })
