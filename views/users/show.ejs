@@ -1,37 +1,35 @@
 <%- include('../partials/header') %>
 
-<h3><%= title %></h3>
+<h1 class="title-text"><%= title %></h1>
 
 <div class="card" style="width: 18rem;">
-  <!-- If our user doesn't have an avatar image, let's use a silly cat picture! -->
+
   <img id="avatarPhoto" style="height: 18rem;" class="card-img-top" src="<%= userInfo.avatar ? userInfo.avatar : 'https://i.imgur.com/DuUZpapt.jpg'  %>" alt="Card image cap">
   <div class="card-header">
   </div>
     <h5 class="card-title"><%= userInfo.name %></h5>
-    <!-- Let's clean up the date data to show the day the user joined -->
+
     <p class="card-text">Joined: <%= userInfo.createdAt.toLocaleString() %></p>
     <p class="card-text">Email: <a href="mailto:<%= userInfo.email %>"><%= userInfo.email %></a></p>
     <p class="card-text">Bio: <%= userInfo.bio %></p>
     <p class="card-text">Favorite Recipes:</p>
-    <!-- This is where we'll iterate over the games with a forEach -->
 
-    <!-- This is where we'll render buttons to add/remove a user to follow -->
     <% if (!userInfo._id.equals(user._id) && !user.following.includes(userInfo._id)) { %>
-      <a href="/users/<%= userInfo._id %>/follower" class="btn btn-primary">Follow</a>
+      <a href="/users/<%= userInfo._id %>/follower" class="btn btn-success">Follow</a>
     <% } %>
     <% if (!userInfo._id.equals(user._id) && user.following.includes(userInfo._id)) { %>
-      <a href="/users/<%= userInfo._id %>/unfollow" class="btn btn-primary">Unfollow</a>
+      <a href="/users/<%= userInfo._id %>/unfollow" class="btn btn-success">Unfollow</a>
     <% } %>
   </div>
 </div>
-
-<h2>Recipes</h2>
+<br>
+<h2 class="title-text">Recipes</h2>
 
 <% recipes.forEach(r => { %>
   <div class="card" style="width: 18rem;">
     <h5 class="card-title"><%= r.name %></h5>
     <a href="/users/<%= r.createdBy %>"></a>
-      <a href="/recipes/<%= r._id %>" class="btn btn-primary">Details</a>
+      <a href="/recipes/<%= r._id %>" class="btn btn-success">Details</a>
     </div>
   </div>
 <% }) %>

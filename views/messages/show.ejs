@@ -1,20 +1,20 @@
 <%- include('../partials/header') %>
 
-<h3><%= title %></h3>
-<h4><%= message.title %></h4>
+<h1 class="title-text"><%= title %></h1>
+<h4 class="title-text"><%= message.title %></h4>
+<div class="card">
 <h5>Posted on <%= message.createdAt.toLocaleString() %> - <%= message.postedBy %> <img id="avatarPhoto" width="30" src="<%= message.avatar %>" alt=""></h5>
-
 <% message.replies.forEach(reply => { %>
-    <h6><%= reply.message %> - <%= reply.postedBy %> <img id="avatarPhoto" width="25" src="<%= reply.avatar %>" alt=""></h6>
+    <h6><%= reply.message %> - <%= reply.postedBy %> <img id="avatarPhoto" width="30" src="<%= reply.avatar %>" alt=""></h6>
 <% }) %>
-
 <form action="/messages/<%= message._id %>" method="POST">
   <div class="form-group">
     <input type="text" class="form-control" aria-describedby="message" name="message" placeholder="Enter reply...">
   </div>
-  <button type="submit" class="btn btn-primary">Reply</button>
+  <button type="submit" class="btn btn-success">Reply</button>
 </form>
 <br>
-<a href="/messages" class="btn btn-primary">Back to Messages</a>
+<a href="/messages" class="btn btn-success">Back to Messages</a>
+</div>
 
 <%- include('../partials/footer') %>

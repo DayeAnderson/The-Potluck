@@ -4,8 +4,14 @@
 
 .card {
   display: inline-flex;
-  background-color: #fff6e8;
-  width: 25em;
+  background-color: #fff6e8ce;
+  width: 35em;
+}
+
+.cards {
+  display: inline-flex;
+  background-color: #fff6e8ce;
+  width: 35em;
 }
 
 #avatarPhoto {
@@ -19,12 +25,14 @@ body {
 }
 
 .navbar {
-  background-color: rgba(212, 212, 212, 0.7);
+  background-color: rgba(212, 212, 212, 0.9);
+  font-size: 20px;
 }
 
 .title-text {
   font-family: 'Chelsea Market', cursive;
   color: #FFF8EC;
+  text-shadow: 3px 3px #98764ab2;
 }
 
 .btn {
@@ -35,4 +43,19 @@ a {
   color: #00AF65;
 }
 
+.box {
+  background-color: rgba(212, 212, 212, 0.8);
+}
 
+.form-control {
+  width: 500px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  background-color: #fff6e8a9;
+  margin: 0;
+}

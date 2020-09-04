@@ -1,6 +1,8 @@
 <%- include('../partials/header') %>
 
-<h3 class="title-text">Message Board</h3>
+<h1 class="title-text">Message Board</h1>
+<br>
+<br>
 <form action="/messages" method="POST">
   <div class="form-group">
     <input type="text" class="form-control" aria-describedby="message" name="title" placeholder="Enter message...">
@@ -11,15 +13,15 @@
 <% messages.forEach(message => { %>
   <div class="card">
     <div class="card-header">
+            <form action="/messages/<%= message.id %>?_method=DELETE" method="POST">
+        <button class="close" type="submit">X</button>
+      </form>
       <%= message.postedBy %> <img id="avatarPhoto" width="30" src="<%= message.avatar ? message.avatar : 'https://i.imgur.com/DuUZpapt.jpg'  %>">
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= message.title %></h5>
       <h6><%= message.createdAt.toLocaleString()%></h6>
-      <a href="/messages/<%= message._id %>" class="btn btn-primary">See Post</a>
-        <form action="/messages/<%= message.id %>?_method=DELETE" method="POST">
-          <button type="submit">X</button>
-        </form>
+      <a href="/messages/<%= message._id %>" class="btn btn-success">See Post</a>
     </div>
   </div>
 <% }) %>

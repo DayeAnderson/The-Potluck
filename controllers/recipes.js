@@ -41,8 +41,6 @@ function newRecipe(req, res) {
 function create(req, res) {
     req.body.createdBy = req.user.name
     req.body.userId = req.user._id
-    console.log(req.params.id)
-    console.log(req.body)
     Recipe.create(req.body)
     .then(() => {
         res.redirect('/recipes')

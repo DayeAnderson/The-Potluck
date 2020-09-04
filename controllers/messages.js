@@ -31,7 +31,7 @@ function show(req, res) {
   Message.findById(req.params.id)
   .then((message) => {
     res.render('messages/show', {
-      title: 'Message',
+      title: 'Message Board',
       user: req.user,
       message
     })

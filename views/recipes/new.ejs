@@ -1,28 +1,28 @@
 <%- include('../partials/header') %>
 
-<h1><%= title %></h1>
+<h1 class="title-text"><%= title %></h1>
 
 <form action="/recipes" method="POST">
     <div class="form-row">
       <div class="col-md-4">
-        <h5>Name of Dish:</h5>
+        <h4 class="title-text">Name of Dish:</h5>
         <input type="text" id="name" class="form-control" name="name" placeholder="Dish name...">
       </div>
     </div>
     <div class="form-row">
         <div class="col-md-12">
-          <h5>Description</h5>
+          <h4 class="title-text">Description</h5>
           <textarea rows="3" id="description" class="form-control" name="description" placeholder="Describe the dish..."><%= recipes.desciption %></textarea>
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-12">
-          <h5>Instructions</h5>
+          <h4 class="title-text">Instructions</h5>
           <textarea rows="3" id="instructions" class="form-control" name="instructions" placeholder="How do you make it..."><%= recipes.instructions %></textarea>
         </div>
       </div> 
-      <h5>Add Image</h5>
-      <input type="text" id="imageUrl" class="form-control" name="imageUrl" value="<%= recipes.imageUrl %>">
+      <h4 class="title-text">Add Image</h5>
+      <input type="text" width="20" id="imageUrl" class="form-control" name="imageUrl" value="<%= recipes.imageUrl ? recipes.imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF6SSEbCOGYcAoSP_cU29mG8_oK5pSyM9e1w&usqp=CAU' %>" placeholder="How does the dish look...">
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
 

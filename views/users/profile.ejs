@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h3><%= title %></h3>
+<h1 class="title-text"><%= title %></h1>
 
 <div class="card">
       <ul class="nav nav-pills card-header-pills">
@@ -37,7 +37,7 @@
                   <textarea rows="3" id="bio" class="form-control" name="bio"><%= user.bio %></textarea>
                 </div>
               </div>
-              <button type="submit" class="btn btn-warning">Update</button>
+              <button type="submit" class="btn btn-success">Update</button>
             </form>
           </div>
         </div>
@@ -51,16 +51,16 @@
       </div>
   </div>
   <br>
-  <h2>Recipes</h2>
-
+  <br>
+  <h2 class="title-text">Recipes</h2>
   <% recipes.forEach(r => { %>
     <div class="card" style="width: 18rem;">
       <form action="/recipes/<%= r.id %>?_method=DELETE" method="POST">
-        <button type="submit">X</button>
+        <button class="close" type="submit">X</button>
       </form>
       <h5 class="card-title"><%= r.name %></h5>
       <a href="/users/<%= r.createdBy %>"></a>
-        <a href="/recipes/<%= r._id %>" class="btn btn-primary">Details</a>
+        <a href="/recipes/<%= r._id %>" class="btn btn-success">Details</a>
       </div>
     </div>
   <% }) %>
