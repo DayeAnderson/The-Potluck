@@ -52,12 +52,13 @@
   </div>
   <br>
   <br>
-  <h2 class="title-text">Recipes</h2>
+  <h1 class="title-text">Recipes</h1>
   <% recipes.forEach(r => { %>
     <div class="card" style="width: 18rem;">
       <form action="/recipes/<%= r.id %>?_method=DELETE" method="POST">
         <button class="close" type="submit">X</button>
       </form>
+      <img src="<%= r.imageUrl %>" class="card-img-top" alt="...">
       <h5 class="card-title"><%= r.name %></h5>
       <a href="/users/<%= r.createdBy %>"></a>
         <a href="/recipes/<%= r._id %>" class="btn btn-success">Details</a>
