@@ -2,7 +2,7 @@
 
 <h1 class="title-text"><%= title %></h1>
 
-<div class="card" style="width: 18rem;">
+<div class="cards" style="width: 18rem;">
 
   <img id="avatarPhoto" style="height: 18rem;" class="card-img-top" src="<%= userInfo.avatar ? userInfo.avatar : 'https://i.imgur.com/DuUZpapt.jpg'  %>" alt="Card image cap">
   <div class="card-header">
@@ -12,7 +12,6 @@
     <p class="card-text">Joined: <%= userInfo.createdAt.toLocaleString() %></p>
     <p class="card-text">Email: <a href="mailto:<%= userInfo.email %>"><%= userInfo.email %></a></p>
     <p class="card-text">Bio: <%= userInfo.bio %></p>
-    <p class="card-text">Favorite Recipes:</p>
 
     <% if (!userInfo._id.equals(user._id) && !user.following.includes(userInfo._id)) { %>
       <a href="/users/<%= userInfo._id %>/follower" class="btn btn-success">Follow</a>
@@ -23,10 +22,11 @@
   </div>
 </div>
 <br>
-<h2 class="title-text">Recipes</h2>
+<h1 class="title-text">Recipes</h1>
 
 <% recipes.forEach(r => { %>
   <div class="card" style="width: 18rem;">
+    <img src="<%= r.imageUrl %>" class="card-img-top" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF6SSEbCOGYcAoSP_cU29mG8_oK5pSyM9e1w&usqp=CAU">
     <h5 class="card-title"><%= r.name %></h5>
     <a href="/users/<%= r.createdBy %>"></a>
       <a href="/recipes/<%= r._id %>" class="btn btn-success">Details</a>

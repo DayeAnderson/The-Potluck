@@ -4,7 +4,7 @@
 
 <% recipes.forEach(recipe => { %>
     <div class="card" style="width: 18rem;">
-      <img src="<%= recipe.imageUrl %>" class="card-img-top" alt="...">
+      <img id="food" src="<%= recipe.imageUrl %>" class="card-img-top" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF6SSEbCOGYcAoSP_cU29mG8_oK5pSyM9e1w&usqp=CAU">
       <h5 class="card-title"><%= recipe.name %></h5>
       <p> Created By <a href="/users/<%= recipe.userId %>"><%= recipe.createdBy %></a></p>
         <a href="/recipes/<%= recipe._id %>" class="btn btn-success">Details</a>

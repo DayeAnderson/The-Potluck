@@ -5,6 +5,7 @@
 Cooking has always been a passion of mine since I was a child being so eager to flip burgers my mom made in the frying pan. Since becoming vegan over 6 years ago I've expanded my cooking knowledge and experience by collecting cookbooks and experimenting with ingredients. Although reading cookbooks are helpful, having a community filled with people from different places and cultures sharing their recipes within one source would help expand the knowledge of cooking not just for me but for everyone else that takes part in that community. This is the motivation that fuels this app.
 
 ### Run Application
+https://the-potluck.herokuapp.com/
 
 ### User Stories
 * AAU I want to be able to sign in using an authentication
@@ -38,6 +39,13 @@ Cooking has always been a passion of mine since I was a child being so eager to 
 * Node Js
 * Mongodb
 * express
+* MongooseJS
+* MongoDB Atlas
+* EJS Templating
+* Heroku with NodeJS
+* CSS
+* Google OAuth 2.0
+* PassportJS
 
 ## ERD
 ![Image of ERD](public/images/ERD.jpeg)
