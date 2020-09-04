@@ -4,11 +4,12 @@ const Schema = mongoose.Schema
 const recipeSchema = new Schema ({
     name: String,
     description: String,
+    userId: String,
     instructions: String,
     imageUrl: String,
     ingredients: Array,
     recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe'}],
-    createdBy: String
+    createdBy: String,
 },{
     timestamps: true
 })

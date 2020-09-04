@@ -7,7 +7,6 @@
   <img id="avatarPhoto" style="height: 18rem;" class="card-img-top" src="<%= userInfo.avatar ? userInfo.avatar : 'https://i.imgur.com/DuUZpapt.jpg'  %>" alt="Card image cap">
   <div class="card-header">
   </div>
-  <div class="card-body">
     <h5 class="card-title"><%= userInfo.name %></h5>
     <!-- Let's clean up the date data to show the day the user joined -->
     <p class="card-text">Joined: <%= userInfo.createdAt.toLocaleString() %></p>
@@ -16,7 +15,7 @@
     <p class="card-text">Favorite Recipes:</p>
     <!-- This is where we'll iterate over the games with a forEach -->
 
-    <!-- This is where we'll render buttons to add/remove a user as a friend -->
+    <!-- This is where we'll render buttons to add/remove a user to follow -->
     <% if (!userInfo._id.equals(user._id) && !user.following.includes(userInfo._id)) { %>
       <a href="/users/<%= userInfo._id %>/follower" class="btn btn-primary">Follow</a>
     <% } %>
@@ -30,9 +29,6 @@
 
 <% recipes.forEach(r => { %>
   <div class="card" style="width: 18rem;">
-    <form action="/recipes/<%= r.id %>?_method=DELETE" method="POST">
-      <button type="submit">X</button>
-    </form>
     <h5 class="card-title"><%= r.name %></h5>
     <a href="/users/<%= r.createdBy %>"></a>
       <a href="/recipes/<%= r._id %>" class="btn btn-primary">Details</a>

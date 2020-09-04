@@ -39,10 +39,12 @@ function newRecipe(req, res) {
 }
 
 function create(req, res) {
-    console.log(req.user.name)
     req.body.createdBy = req.user.name
+    req.body.userId = req.user._id
+    console.log(req.params.id)
+    console.log(req.body)
     Recipe.create(req.body)
-    .then((recipe) => {
+    .then(() => {
         res.redirect('/recipes')
     })
 }
@@ -53,6 +55,7 @@ function index(req, res) {
         res.render('recipes/index', {
             title: 'Community Recipes',
             user: req.user,
+            createdBy: recipes.createdBy,
             recipes: recipes.reverse()
         })
     })

@@ -48,7 +48,7 @@ function update(req, res) {
 function show(req, res) {
   User.findById(req.params.id)
   .then((userInfo) => {
-    Recipe.find({ createdBy: req.params.id })
+    Recipe.find({ createdBy: userInfo.name })
     .then((recipes) => {
       res.render('users/show', {
         title: 'Info',

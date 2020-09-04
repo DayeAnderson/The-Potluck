@@ -1,11 +1,12 @@
 <%- include('../partials/header') %>
 
-<h3><%= title %></h3>
+<h1 class="title-text"><%= title %></h1>
 
 <% recipes.forEach(recipe => { %>
     <div class="card" style="width: 18rem;">
+      <img src="<%= recipe.imageUrl %>" class="card-img-top" alt="...">
       <h5 class="card-title"><%= recipe.name %></h5>
-      <p> Created By <a href="users/<%= recipe.createdBy %>"><%= recipe.createdBy %></a></p>
+      <p> Created By <a href="/users/<%= recipe.userId %>"><%= recipe.createdBy %></a></p>
         <a href="/recipes/<%= recipe._id %>" class="btn btn-primary">Details</a>
       </div>
     </div>
