@@ -62,6 +62,14 @@ https://the-potluck.herokuapp.com/
 #### Message Board 
 ![Message Board](public/images/message.png)
 
+## Screenshots
+#### Community Page
+![Community Page](public/images/communityPage.png)
+#### Profile Page
+![Profile Page](public/images/profilePage.png)
+#### Create Recipe Page
+![Create Recipe](public/images/createRecipe.png)
+
 ## Stretch Goals
 * Make a page to pull ingredients from a recipe into a shopping list
 * Add filter feature to narrow down search for recipes
