@@ -47,6 +47,9 @@ https://the-potluck.herokuapp.com/
 * Google OAuth 2.0
 * PassportJS
 
+## Trello Board
+<a href="https://trello.com/b/363IBx4e/cookbook">Trello</a>
+
 ## ERD
 ![Image of ERD](public/images/ERD.jpeg)
 
